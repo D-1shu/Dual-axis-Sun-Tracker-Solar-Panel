@@ -1,6 +1,6 @@
-//Ingeimaks
+
 #include <Servo.h>
-//definiamo i servomotori orizzontale e verticale
+//define two servomotors horizontal and vertical
 Servo servohori;
 int servoh = 60;
 int servohLimitHigh = 120;
@@ -10,7 +10,8 @@ Servo servoverti;
 int servov = 0; 
 int servovLimitHigh = 30;
 int servovLimitLow = 0;
-//Pin fotoresistenze
+
+//Pin declaration
 int ldrtopl = A2; //top left 
 int ldrtopr = A1; //top right 
 int ldrbotl = A3; // bottom left 
@@ -30,12 +31,12 @@ void loop()
 {
   servoh = servohori.read();
   servov = servoverti.read();
-  //Valore Analogico delle fotoresistenza
+  //Analog value of the photoresistor
   int topl = analogRead(ldrtopl);
   int topr = analogRead(ldrtopr);
   int botl = analogRead(ldrbotl);
   int botr = analogRead(ldrbotr);
-  // Calcoliamo una Media
+  //Let's calculate an average 
   int avgtop = (topl + topr) ; //average of top 
   int avgbot = (botl + botr) ; //average of bottom 
   int avgleft = (topl + botl) ; //average of left 
